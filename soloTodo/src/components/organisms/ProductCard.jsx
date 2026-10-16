@@ -10,7 +10,9 @@ function ProductCard({ product }) {
   const precio = product.price || product.precio;
   const imagen = product.image || product.imagen;
   const categoria = product.category || product.categoria;
-  const urlOficial = product.url || product.enlace || 'https://store.steampowered.com';
+  
+  // 👇 Cambiado para que lea prioritariamente "product.link" (la página oficial de cada juego)
+  const urlOficial = product.link || product.url || product.enlace || 'https://store.steampowered.com';
 
   const handleVerDetalles = (e) => {
     e.stopPropagation();

@@ -203,7 +203,19 @@ body {
    ========================================================= */
 @media (max-width: 992px) {
   .juegotodo-header {
-    padding: 10px 14px !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #161616;
+    border: 2px solid #3afff8;
+    border-radius: 14px;
+    margin: 20px auto 30px auto;
+    padding: 10px 25px;
+    width: 95% !important;         /* 👈 FORZADO */
+    max-width: 1150px !important;  /* 👈 FORZADO */
+    box-shadow: 0 0 12px rgba(58, 255, 248, 0.25);
   }
 
   .logo-header-central {
@@ -236,6 +248,17 @@ body {
   .categoria-card-interactiva {
     flex: 0 1 calc(50% - 12px) !important;
     max-width: 240px !important;
+  }
+  .footer-link-atom {
+  color: #cccccc !important;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  .footer-link-atom:hover {
+    color: #3afff8 !important;
+    text-shadow: 0 0 8px #3afff8; 
   }
 }
 

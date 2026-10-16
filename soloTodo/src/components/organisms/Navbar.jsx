@@ -31,7 +31,12 @@ function NavBar() {
 
   return (
     <>
-      <header className="juegotodo-header">
+      {/* 👇 AQUÍ ESTÁ EL TRUCO: Forzamos el ancho al 100% con un máximo de 1150px directo en la etiqueta */}
+{/* 👇 Le quitamos el límite de 1150px y le damos el 98% de la pantalla */}
+        <header 
+          className="juegotodo-header" 
+          style={{ width: '98%', maxWidth: '100%', margin: '20px auto 30px auto' }}
+        >
         {/* 1. Izquierda: Botón de Hamburguesa */}
         <div className="header-col-izq">
           <button
@@ -107,14 +112,16 @@ function NavBar() {
           <a href="/" className="item-menu-lateral"> INICIO</a>
           <a href="/products" className="item-menu-lateral"> CATALOGO COMPLETO</a>
           <a href="/favoritos" className="item-menu-lateral"> JUEGOS FAVORITOS ({cantidadFavs})</a>
+          <a href="/ofertas" className="item-menu-lateral">  OFERTAS</a>
           <a href="/contacto" className="item-menu-lateral"> CONTACTO</a>
+          <a href="/admin" className="item-menu-lateral">  ADMINISTRADOR</a>
 
           <hr style={{ borderColor: '#3afff8', opacity: 0.4, margin: '15px 0' }} />
 
           <div style={{ color: '#3afff8', fontSize: '0.8rem', fontWeight: 'bold', letterSpacing: '1px', marginBottom: '5px' }}>
             CATEGORIAS RAPIDAS
           </div>
-          <a href="/products?categoria=ACCION" className="item-menu-lateral sub"> AcciOn</a>
+          <a href="/products?categoria=ACCION" className="item-menu-lateral sub"> Accion</a>
           <a href="/products?categoria=DEPORTE" className="item-menu-lateral sub"> Deporte</a>
           <a href="/products?categoria=HISTORIA" className="item-menu-lateral sub"> Historia</a>
           <a href="/products?categoria=SHOOTERS" className="item-menu-lateral sub"> Shooters</a>

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import products from '../data/products';
+// 👇 Importamos getProducts para asegurar que siempre tenga el precio actualizado
+import { getProducts } from '../data/products';
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const product = products.find((p) => p.id === Number(id));
+  // 👇 Leemos desde la memoria fresca
+  const product = getProducts().find((p) => p.id === Number(id));
   const [esFavorito, setEsFavorito] = useState(false);
 
   // Revisa al cargar si este juego ya está guardado en favoritos
@@ -33,7 +35,9 @@ function ProductDetail() {
   const precio = product.price || product.precio;
   const imagen = product.image || product.imagen;
   const categoria = product.category || product.categoria;
-  const urlOficial = product.url || product.enlace || 'https://store.steampowered.com';
+  
+  // 👇 Ahora lee tu propiedad "link" desde products.js
+  const urlOficial = product.link || product.url || product.enlace || 'https://store.steampowered.com';
 
   // Agrega o quita el juego de favoritos
   const toggleFavorito = () => {
@@ -145,7 +149,7 @@ function ProductDetail() {
                   className="btn-sesion-neon py-2 px-3 flex-grow-1"
                   style={{ cursor: 'pointer', fontSize: '0.9rem', backgroundColor: '#141414' }}
                 >
-                  Página oficial
+                  Ver detalles
                 </button>
 
                 <button
